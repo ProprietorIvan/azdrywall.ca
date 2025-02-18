@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 interface NavigationProps {
@@ -20,10 +20,14 @@ const Navigation = ({
   const navLinks = [
     { text: "Home", url: "/" },
     { text: "Services", url: "/services" },
+    { text: "Projects", url: "/projects" },
     { text: "About", url: "/about" },
     { text: "Contact", url: "/contact" },
-    { text: "Gallery", url: "/gallery" },
   ];
+
+  const handleQuoteClick = () => {
+    window.location.href = "tel:+1(778)656-1838";
+  };
 
   return (
     <nav
@@ -34,13 +38,13 @@ const Navigation = ({
       }`}
     >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
             <div className="relative w-48 h-12">
               <Image
                 src="/logo.webp"
-                alt="Drywall Burnaby"
+                alt="EverFix Drywall & Finishing"
                 fill
                 className="object-contain object-left"
                 priority
@@ -49,8 +53,9 @@ const Navigation = ({
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center">
-            <div className="flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-2">
+            {/* Main Navigation Links */}
+            <div className="flex items-center gap-1 mr-4">
               {navLinks.map((link, index) => (
                 <a
                   key={index}
@@ -59,46 +64,64 @@ const Navigation = ({
                     e.preventDefault();
                     push(link.url);
                   }}
-                  className={`text-base font-medium hover:text-gray-600 transition-colors ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     transparent
-                      ? "text-white hover:text-gray-200"
-                      : "text-gray-900"
+                      ? "text-white hover:bg-white/10"
+                      : "text-gray-700 hover:bg-gray-100"
                   }`}
                 >
                   {link.text}
                 </a>
               ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex items-center gap-3">
               <a
-                href="tel:+1(778)658-0035"
-                className="ml-4 inline-flex items-center justify-center bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
+                href="tel:+1(778)656-1838"
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  transparent
+                    ? "text-white hover:bg-white/10"
+                    : "text-gray-700 hover:bg-gray-100"
+                }`}
               >
-                (778) 658-0035
+                <Phone className="w-4 h-4" />
+                (778) 656-1838
               </a>
+              <button
+                onClick={handleQuoteClick}
+                className="inline-flex items-center gap-2 px-6 py-2 rounded-full text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-colors"
+              >
+                Get Quote
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-4">
             <a
-              href="tel:+1(778)658-0035"
-              className="inline-flex items-center justify-center bg-gray-900 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
+              href="tel:+1(778)656-1838"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-colors"
             >
+              <Phone className="w-4 h-4 mr-2" />
               Call Now
             </a>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-xl hover:bg-gray-100 transition-colors"
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? (
                 <X
                   className={`h-6 w-6 ${
-                    transparent ? "stroke-white" : "stroke-gray-900"
+                    transparent ? "text-white" : "text-gray-900"
                   }`}
                 />
               ) : (
                 <Menu
                   className={`h-6 w-6 ${
-                    transparent ? "stroke-white" : "stroke-gray-900"
+                    transparent ? "text-white" : "text-gray-900"
                   }`}
                 />
               )}
@@ -108,8 +131,8 @@ const Navigation = ({
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg z-50">
-            <div className="px-4 py-2 space-y-1">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg z-50">
+            <div className="px-4 py-6 space-y-1">
               {navLinks.map((link, index) => (
                 <a
                   key={index}
@@ -119,11 +142,20 @@ const Navigation = ({
                     push(link.url);
                     setIsMenuOpen(false);
                   }}
-                  className="block py-3 px-4 text-gray-900 hover:bg-gray-50 rounded-xl transition-colors"
+                  className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
                 >
                   {link.text}
                 </a>
               ))}
+              <div className="pt-4 mt-4 border-t border-gray-100">
+                <button
+                  onClick={handleQuoteClick}
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-colors"
+                >
+                  Get Your Free Quote
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         )}
