@@ -1,152 +1,188 @@
 import React from "react";
 import {
   Facebook,
-  Twitter,
   Instagram,
   Phone,
   Mail,
   MapPin,
-  ExternalLink,
+  Clock,
+  CheckCircle2,
+  PaintBucket,
+  Paintbrush,
 } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="relative mt-16">
-      <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white py-12 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* About Us Section */}
-          <div className="md:col-span-2">
-            <h3 className="text-xl font-semibold mb-4">
-              Burnaby&apos;s Drywall Experts
+    <footer className="relative bg-gray-900">
+      {/* Main Footer */}
+      <div className="mx-auto max-w-7xl px-4 pt-16 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Company Info */}
+          <div className="lg:col-span-2">
+            <h3 className="text-xl font-bold text-white mb-6">
+              EverFix Drywall &amp; Finishing
             </h3>
-            <div className="h-1 w-16 bg-white mb-6"></div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Your trusted partner in drywall installation and repair across
-              Burnaby. Our expert team is available 24/7 for emergency repairs
-              and renovations, equipped with professional tools and premium
-              materials for flawless results.
+            <p className="text-gray-400 mb-6 max-w-md">
+              Professional painting and drywall services in Vancouver &amp;
+              Burnaby. Delivering quality workmanship and exceptional results
+              for residential and commercial properties.
             </p>
-            <div className="text-gray-400 text-sm">
-              <p>Locally owned and operated in Burnaby</p>
-              <p className="flex items-center gap-2 text-white mt-2">
-                Licensed & Insured in British Columbia
-              </p>
+
+            {/* Service Badges */}
+            <div className="flex flex-wrap gap-4 mb-6">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-800 text-gray-200">
+                <PaintBucket className="w-4 h-4 mr-2" />
+                Professional Painting
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-800 text-gray-200">
+                <Paintbrush className="w-4 h-4 mr-2" />
+                Expert Finishing
+              </span>
+            </div>
+
+            {/* Certifications */}
+            <div className="flex items-center gap-2 text-gray-400 text-sm">
+              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <span>Licensed &amp; Insured in British Columbia</span>
             </div>
           </div>
 
-          {/* Services Section */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">
-              OUR <span className="text-white">SERVICES</span>
-            </h3>
-            <div className="h-1 w-16 bg-white mb-6"></div>
-            <ul className="space-y-3 text-gray-300">
-              <li className="hover:text-white transition-colors duration-300">
-                <Link href="/wall-repair">Wall Repair</Link>
+            <h4 className="text-lg font-semibold text-white mb-6">
+              Quick Links
+            </h4>
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  href="/services"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Our Services
+                </Link>
               </li>
-              <li className="hover:text-white transition-colors duration-300">
-                <Link href="/commercial-services">Commercial Services</Link>
+              <li>
+                <Link
+                  href="/quote"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Get a Quote
+                </Link>
               </li>
-              <li className="hover:text-white transition-colors duration-300">
-                <Link href="/expert-finishing">Expert Finishing</Link>
+              <li>
+                <Link
+                  href="/gallery"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Project Gallery
+                </Link>
               </li>
-              <li className="hover:text-white transition-colors duration-300">
-                <Link href="/additional-services">Additional Services</Link>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Section */}
+          {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">
-              GET IN <span className="text-white">TOUCH</span>
-            </h3>
-            <div className="h-1 w-16 bg-white mb-6"></div>
-            <div className="text-gray-300 space-y-4">
+            <h4 className="text-lg font-semibold text-white mb-6">
+              Contact Us
+            </h4>
+
+            {/* Hours */}
+            <div className="flex items-start gap-3 text-gray-400 mb-4">
+              <Clock className="w-5 h-5 mt-1 flex-shrink-0" />
               <div>
-                <p className="font-semibold mb-2">Available:</p>
-                <p className="text-white font-semibold">24 Hours a Day</p>
-                <p className="text-white font-semibold">7 Days a Week</p>
-                <p className="text-white font-semibold">365 Days a Year</p>
-                <p className="mt-2 text-white font-semibold">
-                  2-Hour Emergency Response
-                </p>
+                <p className="font-medium text-white mb-1">Business Hours</p>
+                <p>Monday - Friday</p>
+                <p>8:00 AM - 5:00 PM</p>
               </div>
-              <div className="pt-4 border-t border-gray-700">
-                <a
-                  href="tel:+1(778)658-0035"
-                  className="flex items-center gap-2 hover:text-white transition-colors duration-300 cursor-pointer mb-3"
-                >
-                  <Phone size={16} />
-                  <p>(778) 658-0035</p>
-                </a>
-                <a
-                  href="mailto:office@drywallburnaby.com"
-                  className="flex items-center gap-2 hover:text-white transition-colors duration-300 cursor-pointer mb-3"
-                >
-                  <Mail size={16} />
-                  <p>office@drywallburnaby.com</p>
-                </a>
-                <div className="flex items-start gap-2 hover:text-white transition-colors duration-300">
-                  <MapPin size={16} className="mt-1 flex-shrink-0" />
-                  <div>
-                    <p>Burnaby, BC</p>
-                    <p>Canada</p>
-                  </div>
-                </div>
+            </div>
+
+            {/* Phone */}
+            <a
+              href="tel:+1(778)656-1838"
+              className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors mb-4"
+            >
+              <Phone className="w-5 h-5" />
+              <span>(778) 656-1838</span>
+            </a>
+
+            {/* Email */}
+            <a
+              href="mailto:office@azdrywall.ca"
+              className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors mb-4"
+            >
+              <Mail className="w-5 h-5" />
+              <span>office@azdrywall.ca</span>
+            </a>
+
+            {/* Address */}
+            <div className="flex items-start gap-3 text-gray-400">
+              <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
+              <div>
+                <p>Downtown Vancouver</p>
+                <p>Vancouver, BC</p>
               </div>
-              <div className="flex space-x-4 pt-4">
-                <a
-                  href="#"
-                  className="p-2 bg-gray-800 hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-lg"
-                >
-                  <Facebook size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="p-2 bg-gray-800 hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-lg"
-                >
-                  <Twitter size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="p-2 bg-gray-800 hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-lg"
-                >
-                  <Instagram size={20} />
-                </a>
-              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-4 mt-6">
+              <a
+                href="#"
+                className="p-2 bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700 rounded-full transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="p-2 bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700 rounded-full transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-            <div className="text-center md:text-left mb-4 md:mb-0">
-              <p>
-                © {new Date().getFullYear()} Drywall Burnaby. ALL RIGHTS
-                RESERVED
-              </p>
-            </div>
-            <div className="flex space-x-8">
-              <a
-                href="#"
-                className="hover:text-white transition-colors duration-300"
+        <div className="mt-16 pt-8 border-t border-gray-800">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400 text-sm text-center md:text-left">
+              © {new Date().getFullYear()} EverFix Drywall &amp; Finishing. All
+              rights reserved.
+            </p>
+            <div className="flex gap-6">
+              <Link
+                href="/privacy"
+                className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                PRIVACY POLICY
-              </a>
-              <a
-                href="#"
-                className="hover:text-white transition-colors duration-300"
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms"
+                className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                TERMS & CONDITIONS
-              </a>
+                Terms &amp; Conditions
+              </Link>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 };
 
